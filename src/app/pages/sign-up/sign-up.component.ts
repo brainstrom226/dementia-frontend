@@ -9,16 +9,30 @@ import { Component } from '@angular/core';
 })
 export class SignUpComponent {
   user = {
-    name: '',
+    uid: '',
     email: '',
+    password: '',
+    role: '',
   };
 
   constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) { }
 
   submitForm() {
-    this.authService.signUp(this.user).subscribe(res=> {
-      console.log(res);
+    console.log(this.user.role);
+    this.authService.signUp(this.user).subscribe(
+      res => {
+        console.log('Signup successful', res);
+        this.router.navigate(['landingPage']);
+      },
+      err => {
+        console.error('Signup failed', err);
+        if (err.status === 400) {
+          alert('Invalid signup details. Please try again.');
+        } else if (err.status === 500) {
+          alert('An error occurred on the server. Please try again later.');
+        } else {
+          alert('Signup failed. Please try again.');
+        }
     });
-    this.router.navigate(['landingPage']);
   }
 }

@@ -5,13 +5,30 @@
          </div>
          <form action="#" (ngSubmit)="submitForm()">
             <div class="field">
-              <input type="email" id="email" name="email" [(ngModel)]="user.email" required email>
-               <label>Email Address</label>
-            </div>
-            <div class="field">
-              <input type="text" id="username" name="username" [(ngModel)]="user.name" required>
+              <input type="text" id="username" name="username" [(ngModel)]="user.uid" required>
                <label>Username</label>
             </div>
+             <div class="field">
+               <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+                <label>Email Address</label>
+             </div>
+             <div class="field">
+               <input type="password" id="password" name="password" [(ngModel)]="user.password" required>
+                <label>Password</label>
+             </div>
+             <div>
+               <div>
+                  Role
+               <label>
+                  <input type="radio" name="role" [(ngModel)]="user.role" value="USER">
+                  User
+              </label>
+              <label>
+               <input type="radio" name="role" [(ngModel)]="user.role" value="CARE_GIVER">
+               Care Giver
+           </label>
+           </div>
+             </div>
             <div class="field">
                <input type="submit" value="Login">
             </div>
