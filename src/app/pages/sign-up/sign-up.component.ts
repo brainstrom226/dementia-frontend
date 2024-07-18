@@ -1,6 +1,7 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,14 +15,17 @@ export class SignUpComponent {
     password: '',
     role: '',
   };
+  signUpSubscription: Subscription | undefined;
+
 
   constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) { }
 
   submitForm() {
     console.log(this.user.role);
-    this.authService.signUp(this.user).subscribe(
+    this.signUpSubscription = this.authService.signUp(this.user).subscribe(
       res => {
         console.log('Signup successful', res);
+        localStorage.setItem('user', this.user.uid);
         this.router.navigate(['landingPage']);
       },
       err => {
@@ -34,5 +38,11 @@ export class SignUpComponent {
           alert('Signup failed. Please try again.');
         }
     });
+  }
+
+  ngOnDestroy() {
+    if(this.signUpSubscription){
+      this.signUpSubscription.unsubscribe();
+    }
   }
 }
