@@ -8,9 +8,18 @@ import { Router } from '@angular/router';
   styleUrl: './contacts.component.css'
 })
 export class ContactsComponent {
-  private router: Router;
+  newContacts = {
+    name: '',
+    email: '',
+    phoneNumber: ''
+  };
 
-  constructor(private route: ActivatedRoute, private routes: Router){
+  private router: Router;
+  constructor(private route: ActivatedRoute, private routes: Router) {
     this.router = routes;
+   }
+
+  submitForm() {
+    console.log('contacts saved..');
   }
 }

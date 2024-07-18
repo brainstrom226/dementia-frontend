@@ -6,10 +6,10 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo:'signUp', pathMatch:'full'},
+  {path: '', redirectTo:'contacts', pathMatch:'full'},
   {path:'signUp', component: SignUpComponent},
+  {path:'contacts', component: ContactsComponent},
   {path: '**', component: PageNotFoundComponent}
-  {path:'contacts', component: ContactsComponent}
 ];
 
 @NgModule({
