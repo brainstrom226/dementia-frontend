@@ -7,9 +7,16 @@ import { Router } from '@angular/router';
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
-export class LandingPageComponent {
-  showView = false;
 
+export class LandingPageComponent {
+  showTiles = false;
+  
+  showViews: { [key in ViewType]: boolean } = { 
+    schedule: false, 
+    gallery: false, 
+    games: false, 
+    contacts: false 
+  };
   constructor(private route: ActivatedRoute, private router: Router){
   }
 
@@ -17,11 +24,10 @@ export class LandingPageComponent {
     this.router.navigate(['landingPage']);
   }
 
-  goToAbout(): void {
-    console.log('hello');
-  }
-
-  openView(): void {
-    this.showView = true;
+  openView(view: ViewType): void {
+    this.showTiles = true;
+    this.showViews[view] = true;
   }
 }
+
+type ViewType = 'schedule' | 'gallery' | 'games' | 'contacts';

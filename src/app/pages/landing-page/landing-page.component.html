@@ -2,30 +2,29 @@
   <span>Dementia app</span>
   <span class="spacer"></span>
   <button mat-button (click)="goToHome()">Home</button>
-  <button mat-button (click)="goToAbout()">About</button>
   <button mat-button>Sign Out</button>
 </mat-toolbar>
 
-<div class="container" *ngIf="!showView">
+<div class="container" *ngIf="!showTiles">
   <div class="row col-sm-12" style="height: 50%;">
-    <div class="col-6">
+    <div class="col-6" (click)="openView('gallery')">
       Gallery
     </div>
-    <div class="col-6">
+    <div class="col-6" (click)="openView('schedule')">
       Schedule
     </div>
   </div>
   <div class="row col-sm-12" style="height: 50%;">
-    <div class="col-6">
+    <div class="col-6" (click)="openView('games')">
       Games
     </div>
-    <div class="col-6" (click)="openView()">
+    <div class="col-6" (click)="openView('contacts')">
       Contacts
     </div>
   </div>
 </div>
 
-<div class="container" *ngIf="showView">
+<div class="container" *ngIf="showTiles">
   <div class="row col-sm-12">
     <div class="col-3">
       <div>Gallery</div>
