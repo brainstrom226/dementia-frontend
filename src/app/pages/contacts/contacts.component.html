@@ -46,4 +46,40 @@
     <p>Police phone number 100</p>
     <p>Ambulance phone number 108</p>
   </div>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black; /* Add border to both table headers and cells */
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2; /* Highlight column headers */
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9; /* Highlight even rows */
+    }
+    tr:hover {
+      background-color: #d1e7fd; /* Highlight row on hover */
+    }
+  </style>  
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Primary Phone Number</th>
+        <th>Secondary Phone Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.priPhNum }}</td>
+        <td>{{ contact.secPhNum }}</td>
+      </tr>
+    </tbody>
+  </table>   
 </div>
