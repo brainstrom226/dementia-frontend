@@ -10,8 +10,8 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   signUp(user: any): Observable<any> {
-    const url = 'https://jsonplaceholder.typicode.com/todos/1';
+    const url = 'http://localhost:8080/dementia-app/user/sign-up';
     console.log('data sent', user);
-    return this.http.get(url);
+    return this.http.post(url, user);
   }
 }

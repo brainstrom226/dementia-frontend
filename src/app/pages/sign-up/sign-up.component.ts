@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
 
@@ -9,17 +9,16 @@ import { Component } from '@angular/core';
 })
 export class SignUpComponent {
   user = {
-    username: '',
+    name: '',
     email: '',
-    password: ''
   };
 
-  constructor(private route: ActivatedRoute, private authService: AuthService) { }
+  constructor(private route: ActivatedRoute, private authService: AuthService, private router: Router) { }
 
   submitForm() {
-    console.log('Form submitted!', this.user);
     this.authService.signUp(this.user).subscribe(res=> {
       console.log(res);
     });
+    this.router.navigate(['landingPage']);
   }
 }

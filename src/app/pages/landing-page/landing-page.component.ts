@@ -8,10 +8,8 @@ import { Router } from '@angular/router';
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
-  private router: Router;
 
-  constructor(private route: ActivatedRoute, private routes: Router){
-    this.router = routes;
+  constructor(private route: ActivatedRoute, private router: Router){
   }
 
   goToHome(): void {
