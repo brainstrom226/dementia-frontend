@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -7,5 +8,17 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
-  constructor(private route: ActivatedRoute) { }
+  private router: Router;
+
+  constructor(private route: ActivatedRoute, private routes: Router){
+    this.router = routes;
+  }
+
+  goToHome(): void {
+    this.router.navigate(['landingPage']);
+  }
+
+  goToAbout(): void {
+    console.log('hello');
+  }
 }
