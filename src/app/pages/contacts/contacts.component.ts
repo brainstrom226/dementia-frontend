@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './contacts.component.css'
 })
 export class ContactsComponent {
+  private router: Router;
 
+  constructor(private route: ActivatedRoute, private routes: Router){
+    this.router = routes;
+  }
 }
