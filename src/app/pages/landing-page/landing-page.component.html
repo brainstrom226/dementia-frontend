@@ -6,7 +6,7 @@
   <button mat-button>Sign Out</button>
 </mat-toolbar>
 
-<div class="container">
+<div class="container" *ngIf="!showView">
   <div class="row col-sm-12" style="height: 50%;">
     <div class="col-6">
       Gallery
@@ -19,8 +19,22 @@
     <div class="col-6">
       Games
     </div>
-    <div class="col-6">
+    <div class="col-6" (click)="openView()">
       Contacts
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="showView">
+  <div class="row col-sm-12">
+    <div class="col-3">
+      <div>Gallery</div>
+      <div>Schedule</div>
+      <div>Contacts</div>
+      <div>Games</div>
+    </div>
+    <div class="col-9">
+      <app-contacts></app-contacts>
     </div>
   </div>
 </div>

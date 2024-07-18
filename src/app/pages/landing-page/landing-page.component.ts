@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
+  showView = false;
 
   constructor(private route: ActivatedRoute, private router: Router){
   }
@@ -18,5 +19,9 @@ export class LandingPageComponent {
 
   goToAbout(): void {
     console.log('hello');
+  }
+
+  openView(): void {
+    this.showView = true;
   }
 }
