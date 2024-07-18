@@ -9,13 +9,15 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { GalleryComponent } from './gallery/gallery.component';
 @NgModule({
   declarations: [
     LandingPageComponent,
     PageNotFoundComponent,
     ContactsComponent,
     SignUpComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    GalleryComponent
   ],
   imports: [
     CommonModule,
