@@ -6,17 +6,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ContactsComponent } from './contacts/contacts.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     LandingPageComponent,
     PageNotFoundComponent,
-    ContactsComponent
+    ContactsComponent,
+    SignUpComponent
   ],
   imports: [
     CommonModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    FormsModule
   ],
   exports: [
     LandingPageComponent,
