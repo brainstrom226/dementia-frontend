@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
+import { ContactsService } from '../../services/contacts.service';
 
 @Component({
   selector: 'app-contacts',
@@ -10,16 +11,18 @@ import { Router } from '@angular/router';
 export class ContactsComponent {
   newContacts = {
     name: '',
-    email: '',
-    phoneNumber: ''
+    priPhNum: '',
+    secPhNum: ''
   };
 
-  private router: Router;
-  constructor(private route: ActivatedRoute, private routes: Router) {
-    this.router = routes;
+  constructor(private route: ActivatedRoute, private router: Router, private contactsService:ContactsService) {
+  
    }
 
   submitForm() {
     console.log('contacts saved..');
+    this.contactsService.addContacts(this.newContacts).subscribe((res) => {
+      console.log(res);
+    })
   }
 }

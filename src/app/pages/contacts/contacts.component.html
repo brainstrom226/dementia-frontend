@@ -1,16 +1,45 @@
-<p>contacts works!</p>
-<form (ngSubmit)="submitForm()" #contactsForm="ngForm">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" [(ngModel)]="newContacts.name" required>
+<style>
+    .container {
+      margin-top: 20px; /* Adjust the value as needed */
+    }
+    .btn-center {
+      display: flex;
+      justify-content: center;
+    }
+    .emergency-numbers {
+      text-align: center;
+      margin-top: 20px; /* Adjust the value as needed */
+    }
+    .emergency-top {
+      text-align: center;
+      margin-bottom: 20px; /* Adjust the value as needed */
+    }
+  </style>
+  
+  <div class="container">
+    <div class="emergency-top">
+      <p>Emergency Contact</p>
     </div>
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" [(ngModel)]="newContacts.email" required email>
+    <form (ngSubmit)="submitForm()" #contactsForm="ngForm">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="newContacts.name" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Primary Phone Number:</label>
+        <input type="email" id="priPhNum" name="priPhNum" class="form-control" [(ngModel)]="newContacts.priPhNum" required email>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Secondary Phone Number:</label>
+        <input type="text" id="secPhNum" name="secPhNum" class="form-control" [(ngModel)]="newContacts.secPhNum" required>
+      </div>
+      <div class="btn-center">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
+    </form>
+    <div class="emergency-numbers">
+      <p>Police phone number 100</p>
+      <p>Ambulance phone number 108</p>
     </div>
-    <div>
-      <label for="phoneNumber">Phone Number:</label>
-      <input type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="newContacts.phoneNumber" required>
-    </div>
-    <button type="submit">Save</button>
-  </form>
+  </div>
+  
