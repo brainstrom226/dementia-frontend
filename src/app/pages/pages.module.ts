@@ -8,12 +8,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { ContactsComponent } from './contacts/contacts.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
+import { ScheduleComponent } from './schedule/schedule.component';
 @NgModule({
   declarations: [
     LandingPageComponent,
     PageNotFoundComponent,
     ContactsComponent,
-    SignUpComponent
+    SignUpComponent,
+    ScheduleComponent
   ],
   imports: [
     CommonModule,
