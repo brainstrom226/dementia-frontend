@@ -1,0 +1,8 @@
+<p>contacts works!</p>
+<div>
+    <h3>Add New Contact</h3>
+    <input type ="text" placeholder="Name" [(ngModel)]="newContact.name">
+    <input type ="text" placeholder="Phone Number" [(ngModel)]="newContact.phoneNumber">
+    <input type ="text" placeholder="Relationship" [(ngModel)]="newContact.relationship">
+    <button (click) = "addContact()"> Add Contact</button>
+</div>
