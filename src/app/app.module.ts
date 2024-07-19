@@ -9,7 +9,7 @@ import { ServicesModule } from './services/services.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModelsModule } from './models/models.module';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +21,8 @@ import { ModelsModule } from './models/models.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ModelsModule
+    ModelsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     provideAnimationsAsync()

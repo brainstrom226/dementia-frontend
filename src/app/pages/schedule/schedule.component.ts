@@ -1,12 +1,8 @@
 // schedule.component.ts
 import { Component } from '@angular/core';
+import moment from 'moment';
+import { Events } from '../../models/events.model';
 
-interface ScheduleEntry {
-  eventName: string
-  startTime: string;
-  endTime: string;
-  occurrence: string;
-}
 
 @Component({
   selector: 'app-schedule',
@@ -14,12 +10,19 @@ interface ScheduleEntry {
   styleUrls: ['./schedule.component.css']
 })
 export class ScheduleComponent {
-  scheduleEntries: ScheduleEntry[] = [];
+  scheduleEntries: Events[] = [];
   showSaveButton: boolean = false;
 
   addEntry() {
-    this.scheduleEntries.push({ eventName: '',startTime: '', endTime: '', occurrence: '' });
+    this.scheduleEntries.push({ name: '',dateTime: new Date(), description: ''});
     this.showSaveButton = true;
+  }
+
+  onDateChange(): void {
+    // if (event) {
+    //   const formattedDate = moment(event).format('YYYY-MM-DD');
+      console.log('Selected date:');
+    // }
   }
 
   removeEntry(index: number) {

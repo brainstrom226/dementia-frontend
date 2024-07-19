@@ -3,10 +3,10 @@
     <h2>Schedule</h2>
   </div>
   <div *ngFor="let entry of scheduleEntries; let i = index" class="entry-container">
-    <input [(ngModel)]="entry.eventName" placeholder="Event Name">
-    <input [(ngModel)]="entry.startTime" placeholder="Start Time">
-    <input [(ngModel)]="entry.endTime" placeholder="End Time">
-    <input [(ngModel)]="entry.occurrence" placeholder="Enter Day">
+    <input [(ngModel)]="entry.name" placeholder="Event Name">
+    <input [(ngModel)]="entry.description" placeholder="Description">
+    <!-- <input [(ngModel)]="entry.dateTime" placeholder="Date"> -->
+    <input type="text" class="form-control" id="datepicker" [(ngModel)]="entry.dateTime" bsDatepicker (bsValueChange)="onDateChange()">
     <button class="secondary-button" (click)="removeEntry(i)">Remove</button>
   </div>
   <div class="button-container">
