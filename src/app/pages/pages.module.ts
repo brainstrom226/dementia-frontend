@@ -10,6 +10,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { GalleryComponent } from './gallery/gallery.component';
+import { GamesComponent } from './games/games.component';
 @NgModule({
   declarations: [
     LandingPageComponent,
@@ -17,7 +18,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     ContactsComponent,
     SignUpComponent,
     ScheduleComponent,
-    GalleryComponent
+    GalleryComponent,
+    GamesComponent
   ],
   imports: [
     CommonModule,

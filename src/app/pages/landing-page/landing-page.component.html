@@ -5,14 +5,30 @@
   <button mat-button (click)="signOut()">Sign Out</button>
 </mat-toolbar>
 
-<div class="tiles-container" *ngIf="!showTiles">
-  <div class="tile" *ngFor="let tile of tiles">
-    <div (click)="openView(tile.heading)">
-    <h2>{{ tile.heading }}</h2>
-    <img [src]="tile.image" alt="{{ tile.heading }}">
+<div class="container" *ngIf="!showTiles">
+  <div class="row col-sm-12" style="height: 50%;">
+    <div class="col-6 tile" (click)="openView('gallery')">
+      <h2>Gallery</h2>
+      <img src="gallery.jpg" alt="Gallery">
+    </div>
+    <div class="col-6 tile" (click)="openView('schedule')">
+      <h2>Schedule</h2>
+      <img src="schedule.jpg" alt="Schedule">
+    </div>
   </div>
+  <div class="row col-sm-12" style="height: 50%;">
+    <div class="col-6 tile" (click)="openView('games')">
+      <h2>Games</h2>
+      <img src="games.jpg" alt="Games">
+    </div>
+    <div class="col-6 tile" (click)="openView('contacts')">
+      <h2>Contacts</h2>
+      <img src="contact.jpg" alt="Contacts">
+    </div>
   </div>
 </div>
+
+
 
 <div class="container" *ngIf="showTiles">
   <div class="row col-sm-12">

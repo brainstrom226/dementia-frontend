@@ -12,9 +12,6 @@ const routes: Routes = [
   {path: '', redirectTo:'sign-up', pathMatch:'full'},
   {path:'sign-up', component: SignUpComponent},
   {path:'care-companion', component: LandingPageComponent},
-  {path:'contacts', component: ContactsComponent},
-  {path:'schedule', component: ScheduleComponent},
-  {path: 'gallery', component: GalleryComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
