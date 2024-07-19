@@ -20,7 +20,7 @@ export class LandingPageComponent {
 
 
   tiles = [
-    { heading: 'schedule', image: 'assets/gallery.jpg' },
+    { heading: 'schedule', image: 'assets/schedule.jpg' },
     { heading: 'gallery', image: 'assets/gallery.jpg' },
     { heading: 'games', image: 'assets/games.jpg' },
     { heading: 'contacts', image: 'assets/contact.jpg' }
@@ -30,7 +30,7 @@ export class LandingPageComponent {
   }
 
   goToHome(): void {
-    this.router.navigate(['landingPage']);
+    this.router.navigate(['care-companion']);
     this.showTiles = true;
     this.showViews.contacts = false;
     this.showViews.games = false;
@@ -41,7 +41,7 @@ export class LandingPageComponent {
   signOut(): void {
     localStorage.removeItem('user');
     localStorage.removeItem('role');
-    this.router.navigate(['signUp']);
+    this.router.navigate(['sign-up']);
   }
 
   openView(view: any): void {

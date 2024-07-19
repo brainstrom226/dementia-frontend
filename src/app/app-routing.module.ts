@@ -7,9 +7,9 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo:'signUp', pathMatch:'full'},
-  {path:'signUp', component: SignUpComponent},
-  {path:'landingPage', component: LandingPageComponent},
+  {path: '', redirectTo:'sign-up', pathMatch:'full'},
+  {path:'sign-up', component: SignUpComponent},
+  {path:'care-companion', component: LandingPageComponent},
   // {path:'contacts', component: ContactsComponent},
   {path: '**', component: PageNotFoundComponent}
 ];

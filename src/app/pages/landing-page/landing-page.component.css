@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   background: linear-gradient(-135deg, #c850c0, #4158d0);
+  font-weight: 500;
 }
 .spacer {
   flex: 1 1 auto;

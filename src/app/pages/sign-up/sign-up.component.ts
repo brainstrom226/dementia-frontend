@@ -26,7 +26,7 @@ export class SignUpComponent {
       res => {
         localStorage.setItem('user', res.uid);
         localStorage.setItem('role', res.role);
-        this.router.navigate(['landingPage']);
+        this.router.navigate(['care-companion']);
       },
       err => {
         console.error('Signup failed', err);

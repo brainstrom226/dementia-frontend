@@ -127,3 +127,15 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
+
+.role {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+.role-btn {
+  color: #999999;
+  padding: 5px 5px 0 5px;
+}
