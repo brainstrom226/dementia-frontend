@@ -11,6 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GamesComponent } from './games/games.component';
+import { CatcherComponent } from './catcher/catcher.component';
+import { FallingObjectComponent } from './falling-object/falling-object.component';
 @NgModule({
   declarations: [
     LandingPageComponent,
@@ -19,7 +21,9 @@ import { GamesComponent } from './games/games.component';
     SignUpComponent,
     ScheduleComponent,
     GalleryComponent,
-    GamesComponent
+    GamesComponent,
+    CatcherComponent,
+    FallingObjectComponent
   ],
   imports: [
     CommonModule,
