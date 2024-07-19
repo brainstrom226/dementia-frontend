@@ -3,7 +3,9 @@
     <p>Guess a number between 1 and 100</p>
     <input type="number" [(ngModel)]="guess" placeholder="Enter your guess" />
     <button (click)="checkGuess()" class="btn btn-primary">Guess</button>
+    <button (click)="resetGame()" class="btn btn-primary">Reset</button>
     <p *ngIf="message">{{ message }}</p>
+    <hr>
     <h1>Click the Button Game</h1>
   <p>Click the button as many times as you can in 10 seconds!</p>
   <button (click)="clickButton()" [disabled]="!isGameActive" class="btn btn-primary">Click me!</button>

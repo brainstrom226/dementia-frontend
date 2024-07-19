@@ -32,7 +32,6 @@ export class GamesComponent {
       this.message = 'Too high!';
     } else {
       this.message = 'Correct! You win!';
-      this.resetGame();
     }
   }
   clickButton(): void {

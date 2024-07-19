@@ -11,8 +11,6 @@ export class GalleryComponent {
 
   // Dummy photos array for demonstration
   photos: any[] = [
-    { url: 'https://via.placeholder.com/150' },
-    { url: 'https://via.placeholder.com/150' }
   ];
 
   // Event handler for file selection
