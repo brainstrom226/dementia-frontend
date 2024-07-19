@@ -24,8 +24,8 @@ export class SignUpComponent {
     console.log(this.user.role);
     this.signUpSubscription = this.authService.signUp(this.user).subscribe(
       res => {
-        console.log('Signup successful', res);
-        localStorage.setItem('user', this.user.uid);
+        localStorage.setItem('user', res.uid);
+        localStorage.setItem('role', res.role);
         this.router.navigate(['landingPage']);
       },
       err => {

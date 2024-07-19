@@ -1,39 +1,38 @@
-<mat-toolbar color="primary">
-  <span>Dementia app</span>
+<mat-toolbar>
+  <span>CareCompanion</span>
   <span class="spacer"></span>
   <button mat-button (click)="goToHome()">Home</button>
-  <button mat-button>Sign Out</button>
+  <button mat-button (click)="signOut()">Sign Out</button>
 </mat-toolbar>
 
-<div class="container" *ngIf="!showTiles">
-  <div class="row col-sm-12" style="height: 50%;">
-    <div class="col-6" (click)="openView('gallery')">
-      Gallery
-    </div>
-    <div class="col-6" (click)="openView('schedule')">
-      Schedule
-    </div>
+<div class="tiles-container" *ngIf="!showTiles">
+  <div class="tile" *ngFor="let tile of tiles">
+    <div (click)="openView(tile.heading)">
+    <h2>{{ tile.heading }}</h2>
+    <img [src]="tile.image" alt="{{ tile.heading }}">
   </div>
-  <div class="row col-sm-12" style="height: 50%;">
-    <div class="col-6" (click)="openView('games')">
-      Games
-    </div>
-    <div class="col-6" (click)="openView('contacts')">
-      Contacts
-    </div>
   </div>
 </div>
 
 <div class="container" *ngIf="showTiles">
   <div class="row col-sm-12">
     <div class="col-3">
-      <div>Gallery</div>
-      <div>Schedule</div>
-      <div>Contacts</div>
-      <div>Games</div>
+      <div (click)="openOneView('gallery')">Gallery</div>
+      <div (click)="openOneView('schedule')">Schedule</div>
+      <div (click)="openOneView('contacts')">Contacts</div>
+      <div (click)="openOneView('games')">Games</div>
     </div>
-    <div class="col-9">
+    <div *ngIf="this.showViews.contacts" class="col-9">
       <app-contacts></app-contacts>
     </div>
+    <div *ngIf="this.showViews.schedule" class="col-9">
+      <app-schedule></app-schedule>
+    </div>
+    <div *ngIf="this.showViews.gallery" class="col-9">
+      <app-gallery></app-gallery>
+    </div>
+    <!-- <div *ngIf="this.showView.contacts" class="col-9">
+      <app-contacts></app-contacts>
+    </div> -->
   </div>
 </div>

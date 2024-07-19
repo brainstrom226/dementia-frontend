@@ -1,7 +1,41 @@
 .mat-toolbar {
   display: flex;
   justify-content: space-between;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
 }
 .spacer {
   flex: 1 1 auto;
+}
+
+.tiles-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.tile {
+  background-color: #4158d0;
+  color: white;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s;
+  width: 200px;
+}
+
+.tile h2 {
+  margin: 10px 0;
+}
+
+.tile img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.tile:hover {
+  transform: translateY(-5px);
 }

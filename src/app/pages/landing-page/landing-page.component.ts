@@ -17,16 +17,47 @@ export class LandingPageComponent {
     games: false, 
     contacts: false 
   };
+
+
+  tiles = [
+    { heading: 'schedule', image: 'assets/gallery.jpg' },
+    { heading: 'gallery', image: 'assets/gallery.jpg' },
+    { heading: 'games', image: 'assets/games.jpg' },
+    { heading: 'contacts', image: 'assets/contact.jpg' }
+  ];
+
   constructor(private route: ActivatedRoute, private router: Router){
   }
 
   goToHome(): void {
     this.router.navigate(['landingPage']);
+    this.showTiles = true;
+    this.showViews.contacts = false;
+    this.showViews.games = false;
+    this.showViews.gallery = false;
+    this.showViews.schedule = false;
   }
 
-  openView(view: ViewType): void {
+  signOut(): void {
+    localStorage.removeItem('user');
+    localStorage.removeItem('role');
+    this.router.navigate(['signUp']);
+  }
+
+  openView(view: any): void {
     this.showTiles = true;
-    this.showViews[view] = true;
+    this.openOneView(view);
+  }
+
+  openOneView(view: any): void {
+    Object.keys(this.showViews).forEach((key) =>{
+      const viewType = key as ViewType;
+      if(key != view){
+        this.showViews[viewType] = false;
+      }else {
+        this.showViews[viewType] = true;
+      }
+    });
   }
 }
 

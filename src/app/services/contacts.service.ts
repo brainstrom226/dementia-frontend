@@ -7,12 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class ContactsService {
 
+  baseURL = 'http://localhost:8080/dementia-app';
+
   constructor(private http: HttpClient) { }
 
 
-  addContacts(newContacts: any): Observable<any> {
-    const url = 'https://jsonplaceholder.org/posts';
-    console.log('add contact data sent', newContacts);
+  addContacts(newContacts: any, userId: string): Observable<any> {
+    const url = `${this.baseURL}/user/emergency-contact/${userId}`;
+    // console.log('add contact data sent', newContacts);
     return this.http.post(url,newContacts);
   }
 
@@ -30,8 +32,7 @@ export class ContactsService {
   }
 
   getContacts(userId: any): Observable<any> {
-    const url = 'https://jsonplaceholder.org/posts/1';
-     // const url = '/your-endpoint/${userId}';
+    const url = `${this.baseURL}/user/emergency-contact/${userId}`;
     return this.http.get(url);
   }
 }

@@ -15,22 +15,23 @@ export class ContactsComponent {
     priPhNum: '',
     secPhNum: ''
   };
-  userId = '1234';
+  uid= '';
   showDetails = false;
   constructor(private route: ActivatedRoute, private router: Router, private contactsService:ContactsService) {
   
    }
 
    ngOnInit(): void {
+    this.uid = localStorage.getItem('user') || '';
     console.log('fetch contacts details..');
-    this.contactsService.getContacts(this.userId).subscribe(data => {
+    this.contactsService.getContacts(this.uid).subscribe(data => {
       this.newContacts = data;
     });
    }
 
   submitForm() {
     console.log('contacts saved..');
-    this.contactsService.addContacts(this.newContacts).subscribe((res) => {
+    this.contactsService.addContacts(this.newContacts, this.uid).subscribe((res) => {
       console.log(res);
     })
   }
