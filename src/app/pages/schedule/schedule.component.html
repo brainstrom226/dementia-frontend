@@ -1,1 +1,17 @@
-<p>schedule works!</p>
+<div class="schedule-container">
+    <div class="schedule-top">
+      <h2>Schedule</h2>
+    </div>
+    <div *ngFor="let entry of scheduleEntries; let i = index" class="entry-container">
+      <input [(ngModel)]="entry.eventName" placeholder="Event Name">
+      <input [(ngModel)]="entry.startTime" placeholder="Start Time">
+      <input [(ngModel)]="entry.endTime" placeholder="End Time">
+      <input [(ngModel)]="entry.occurrence" placeholder="Enter Day">
+      <button class="secondary-button" (click)="removeEntry(i)">Remove</button>
+    </div>
+    <div class="button-container">
+        <button class="primary-button" (click)="addEntry()">Add Entry</button>
+        <button  *ngIf="showSaveButton" class="primary-button" (click)="saveEntries()">Save</button>
+      </div>
+  </div>
+  
