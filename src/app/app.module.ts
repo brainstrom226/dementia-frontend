@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ModelsModule } from './models/models.module';
 
-
 @NgModule({
   declarations: [
     AppComponent
