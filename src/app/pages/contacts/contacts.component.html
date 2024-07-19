@@ -13,15 +13,15 @@
   <div *ngIf="showDetails">  
     <div class="mb-3">
       <label for="name" class="form-label">Name:</label>
-      <input type="text" id="name" name="name" class="form-control" [(ngModel)]="newContacts.name" required>
+      <input type="text" id="name" name="name" class="form-control" [(ngModel)]="contact.name" required>
     </div>
     <div class="mb-3">
       <label class="form-label">Primary Phone Number:</label>
-      <input type="email" id="priPhNum" name="priPhNum" class="form-control" [(ngModel)]="newContacts.priPhNum" required email>
+      <input type="text" id="priPhNum" name="priPhNum" class="form-control" [(ngModel)]="contact.numbers[0]" required>
     </div>
     <div class="mb-3">
       <label class="form-label">Secondary Phone Number:</label>
-      <input type="text" id="secPhNum" name="secPhNum" class="form-control" [(ngModel)]="newContacts.secPhNum" required>
+      <input type="text" id="secPhNum" name="secPhNum" class="form-control" [(ngModel)]="contact.numbers[1]" required>
     </div>    
     <div class="btn-center">
       <button type="submit" class="btn btn-primary">Save</button>
@@ -51,27 +51,27 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let contact of contacts">
+    <tr *ngFor="let contact of contacts; let idx = index">
       <td>
           <div class="icon-container">
               <span>{{ contact.name }}</span>
-              <span class="edit-icon"  (click)="update()"><i class="fas fa-edit" aria-hidden="true"></i></span>                
+              <span class="edit-icon"  (click)="update(idx)"><i class="fas fa-edit" aria-hidden="true"></i></span>                
           </div>
       </td>
       <td>
           <div class="icon-container">
-            <span>{{ contact.priPhNum }}</span>
+            <span>{{ contact.numbers[0] }}</span>
             <span class="phone-icon"><i class="fas fa-phone" aria-hidden="true"></i></span>
-            <span class="edit-icon" (click)="update()"><i class="fas fa-edit" aria-hidden="true"></i></span>
-            <span class="delete-icon" (click)="delete()"><i class="fas fa-trash-alt" aria-hidden="true"></i></span>
+            <span class="edit-icon" (click)="update(idx)"><i class="fas fa-edit" aria-hidden="true"></i></span>
+            <span class="delete-icon" (click)="delete(idx)"><i class="fas fa-trash-alt" aria-hidden="true"></i></span>
           </div>
       </td>
       <td>
           <div class="icon-container">
-              <span>{{ contact.secPhNum }}</span>
+              <span>{{ contact.numbers[1] }}</span>
               <span class="phone-icon"><i class="fas fa-phone" aria-hidden="true"></i></span>
-              <span class="edit-icon" (click)="update()"><i class="fas fa-edit" aria-hidden="true"></i></span>
-              <span class="delete-icon" (click)="delete()"><i class="fas fa-trash-alt" aria-hidden="true"></i></span>
+              <span class="edit-icon" (click)="update(idx)"><i class="fas fa-edit" aria-hidden="true"></i></span>
+              <span class="delete-icon" (click)="delete(idx)"><i class="fas fa-trash-alt" aria-hidden="true"></i></span>
           </div>
       </td>        
     </tr>

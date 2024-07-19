@@ -1,11 +1,16 @@
-export class Contacts {
+export class  Contacts {
+  id?: string;
+  userId?: string;
     name: string;
-    priPhNum: number;
-    secPhNum: number;
-  
-    constructor(name: string, priPhNum: number, secPhNum: number) {
+    numbers: any;
+   
+    constructor(  id: string,
+        userId: string,
+        name: string,
+        numbers: any) {
+      this.id = id;
+      this.userId = userId;
       this.name = name;
-      this.priPhNum = priPhNum;
-      this.secPhNum = secPhNum;
+      this.numbers = numbers;
     }
   }

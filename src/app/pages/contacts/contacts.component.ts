@@ -10,49 +10,49 @@ import { Contacts } from '../../models/Contacts';
   styleUrl: './contacts.component.css'
 })
 export class ContactsComponent {
-  newContacts = {
-    id:'',
-    name: '',
-    priPhNum: '',
-    secPhNum: ''
-  };
   uid= '';
   showDetails = false;
   constructor(private route: ActivatedRoute, private router: Router, private contactsService:ContactsService) {
   
    }
 
-   contacts: Contacts[] = [
-    new Contacts('John Doe', 1234567890, 9876543210),
-    new Contacts('Jane Smith', 1122334455, 5566778899)
-  ];
+   contacts: Contacts[] = [];
+   contact = {
+    name: '',
+    numbers: []
+   };
 
    ngOnInit(): void {
     this.uid = localStorage.getItem('user') || '';
     console.log('fetch contacts details..');
     this.contactsService.getContacts(this.uid).subscribe(data => {
-      this.newContacts = data;
+      this.contacts = data;
     });
    }
 
   submitForm() {
     console.log('contacts saved..');
-    this.contactsService.addContacts(this.newContacts, this.uid).subscribe((res) => {
+  this.contacts = [this.contact];
+    this.contactsService.addContacts(this.contacts, this.uid).subscribe((res) => {
       console.log(res);
+      this.contacts = res;
     })
+    this.contact.name = '';
+    this.contact.numbers = [];
   }
 
-  update() {
+  update(idx: any) {
     console.log('contacts updated..');
-    this.contactsService.updateContacts(this.newContacts).subscribe((res) => {
+    this.contactsService.updateContacts(this.contacts, this.uid, this.contacts[idx].id).subscribe((res) => {
       console.log(res);
     })
   }
 
-  delete() {
+  delete(idx: any) {
     console.log('contacts deleted..');
-    this.contactsService.deleteContacts(this.newContacts).subscribe((res) => {
+    this.contactsService.deleteContacts(this.uid, this.contacts[idx].id).subscribe((res) => {
       console.log(res);
+      this.contacts.splice(idx,1);
     })
   }
 

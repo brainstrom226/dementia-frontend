@@ -18,17 +18,16 @@ export class ContactsService {
     return this.http.post(url,newContacts);
   }
 
-  updateContacts(newContacts: any): Observable<any> {
-    const url = 'https://jsonplaceholder.org/posts/1';
+  updateContacts(newContacts: any, userId: string, contactId: any): Observable<any> {
+    const url = `${this.baseURL}/user/emergency-contact/${userId}/${contactId}`;
     console.log('updated contact data sent', newContacts);
     return this.http.put(url,newContacts);
   }
 
-  deleteContacts(newContacts: any): Observable<any> {
-    const url = 'https://jsonplaceholder.org/posts/1';
-    // const url = '/your-endpoint/${id}';
-    console.log('delete contact for id ', newContacts);
-    return this.http.delete(url, newContacts);
+  deleteContacts(userId: any, contactId: any): Observable<any> {
+    const url = `${this.baseURL}/user/emergency-contact/${userId}/${contactId}`;
+    console.log('delete contact for id ', userId);
+    return this.http.delete(url);
   }
 
   getContacts(userId: any): Observable<any> {

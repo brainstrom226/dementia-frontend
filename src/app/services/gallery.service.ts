@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class GalleryService {
-  private apiUrl = 'http://your-api-url/gallery'; // Replace with your API endpoint
+
+  private apiUrl = 'http://localhost:8080/dementia-app'; // Replace with your API endpoint
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +18,6 @@ export class GalleryService {
   }
 
   getPhotos() {
-    return this.http.get<any[]>(`${this.apiUrl}/photos`);
+    return this.http.get<any[]>(`${this.apiUrl}/download/${'fileName'}`);
   }
 }
