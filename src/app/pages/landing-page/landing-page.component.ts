@@ -20,10 +20,10 @@ export class LandingPageComponent {
 
 
   tiles = [
-    { heading: 'schedule', image: 'assets/schedule.jpg' },
-    { heading: 'gallery', image: 'assets/gallery.jpg' },
-    { heading: 'games', image: 'assets/games.jpg' },
-    { heading: 'contacts', image: 'assets/contact.jpg' }
+    { heading: 'schedule', image: 'schedule.jpg' },
+    { heading: 'gallery', image: 'gallery.jpg' },
+    { heading: 'games', image: 'games.jpg' },
+    { heading: 'contacts', image: 'contact.jpg' }
   ];
 
   constructor(private route: ActivatedRoute, private router: Router){
