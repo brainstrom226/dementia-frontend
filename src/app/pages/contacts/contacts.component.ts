@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { ContactsService } from '../../services/contacts.service';
+import { Contacts } from '../../models/Contacts';
 
 @Component({
   selector: 'app-contacts',
@@ -20,6 +21,11 @@ export class ContactsComponent {
   constructor(private route: ActivatedRoute, private router: Router, private contactsService:ContactsService) {
   
    }
+
+   contacts: Contacts[] = [
+    new Contacts('John Doe', 1234567890, 9876543210),
+    new Contacts('Jane Smith', 1122334455, 5566778899)
+  ];
 
    ngOnInit(): void {
     this.uid = localStorage.getItem('user') || '';
@@ -57,5 +63,9 @@ export class ContactsComponent {
 
   onAddClick() {
     this.showDetails = true;
+  }
+
+  onCancel(){
+    this.showDetails = false;
   }
 }

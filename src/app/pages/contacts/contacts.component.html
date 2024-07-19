@@ -1,49 +1,80 @@
-<style>
-  .container {
-    margin-top: 20px; /* Adjust the value as needed */
-  }
-  .btn-center {
-    display: flex;
-    justify-content: center;
-  }
-  .emergency-numbers {
-    text-align: center;
-    margin-top: 20px; /* Adjust the value as needed */
-  }
-  .emergency-top {
-    text-align: center;
-    margin-bottom: 20px; /* Adjust the value as needed */
-  }
-</style>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
 
 <div class="container">
-  <div class="emergency-top">
-    <p>Emergency Contact</p>
+<div class="emergency-top">
+  <h2>Emergency Contact</h2>
+</div>
+<form (ngSubmit)="submitForm()" #contactsForm="ngForm">
+  <div *ngIf="!showDetails" class="btn-center">
+    <button type="button" class="btn btn-primary" (click)="onAddClick()">Add</button>
   </div>
-  <form (ngSubmit)="submitForm()" #contactsForm="ngForm">
-    <div *ngIf="!showDetails" class="btn-center">
-      <button type="button" class="btn btn-primary" (click)="onAddClick()">Add</button>
+  <div *ngIf="showDetails">  
+    <div class="mb-3">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" id="name" name="name" class="form-control" [(ngModel)]="newContacts.name" required>
     </div>
-    <div *ngIf="showDetails">  
-      <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
-        <input type="text" id="name" name="name" class="form-control" [(ngModel)]="newContacts.name" required>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Primary Phone Number:</label>
-        <input type="email" id="priPhNum" name="priPhNum" class="form-control" [(ngModel)]="newContacts.priPhNum" required email>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Secondary Phone Number:</label>
-        <input type="text" id="secPhNum" name="secPhNum" class="form-control" [(ngModel)]="newContacts.secPhNum" required>
-      </div>    
-      <div class="btn-center">
-        <button type="submit" class="btn btn-primary">Save</button>
-      </div>
+    <div class="mb-3">
+      <label class="form-label">Primary Phone Number:</label>
+      <input type="email" id="priPhNum" name="priPhNum" class="form-control" [(ngModel)]="newContacts.priPhNum" required email>
     </div>
-  </form>
-  <div class="emergency-numbers">
-    <p>Police phone number 100</p>
-    <p>Ambulance phone number 108</p>
+    <div class="mb-3">
+      <label class="form-label">Secondary Phone Number:</label>
+      <input type="text" id="secPhNum" name="secPhNum" class="form-control" [(ngModel)]="newContacts.secPhNum" required>
+    </div>    
+    <div class="btn-center">
+      <button type="submit" class="btn btn-primary">Save</button>
+      <div style="width: 10px;"></div> 
+      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    </div>
   </div>
+</form>
+<div class="emergency-numbers">
+  <p>
+      Police phone number 100
+      <i class="fas fa-phone ml-1" aria-hidden="true"></i>
+    </p>
+  <br><br>
+    <p>
+      Ambulance phone number 108
+      <i class="fas fa-phone ml-1" aria-hidden="true"></i>
+    </p>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Primary Phone Number</th>
+      <th>Secondary Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of contacts">
+      <td>
+          <div class="icon-container">
+              <span>{{ contact.name }}</span>
+              <span class="edit-icon"  (click)="update()"><i class="fas fa-edit" aria-hidden="true"></i></span>                
+          </div>
+      </td>
+      <td>
+          <div class="icon-container">
+            <span>{{ contact.priPhNum }}</span>
+            <span class="phone-icon"><i class="fas fa-phone" aria-hidden="true"></i></span>
+            <span class="edit-icon" (click)="update()"><i class="fas fa-edit" aria-hidden="true"></i></span>
+            <span class="delete-icon" (click)="delete()"><i class="fas fa-trash-alt" aria-hidden="true"></i></span>
+          </div>
+      </td>
+      <td>
+          <div class="icon-container">
+              <span>{{ contact.secPhNum }}</span>
+              <span class="phone-icon"><i class="fas fa-phone" aria-hidden="true"></i></span>
+              <span class="edit-icon" (click)="update()"><i class="fas fa-edit" aria-hidden="true"></i></span>
+              <span class="delete-icon" (click)="delete()"><i class="fas fa-trash-alt" aria-hidden="true"></i></span>
+          </div>
+      </td>        
+    </tr>
+  </tbody>
+</table>   
 </div>

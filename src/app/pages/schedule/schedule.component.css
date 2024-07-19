@@ -1,0 +1,35 @@
+.schedule-top {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust the value as needed */
+  }
+.primary-button {
+    margin-left: 10px;
+    background-color: #007bff; /* Primary button color (blue) */
+    color: #ffffff;
+    /* Add other styling properties as needed */
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 10px; /* Adjust margin as needed */
+  }
+  
+.secondary-button {
+    background-color: #ff8c00; /* Secondary button color (orange) */
+    color: #ffffff;
+    /* Add other styling properties as needed */
+  }
+  .schedule-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+  }
+  
+  .entry-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  

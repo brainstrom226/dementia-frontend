@@ -1,0 +1,42 @@
+.gallery-container {
+     margin-top: 20px;    
+     margin-left: 10px; 
+  }
+
+  .gallery-top {
+    text-align: center;
+    margin-bottom: 20px; /* Adjust the value as needed */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .file-upload-section {
+    margin-bottom: 15px;
+  }
+  
+  .selected-file {
+    margin-top: 10px;
+  }
+  
+  .upload-button {
+    margin-top: 15px;
+  }
+  
+  .photo-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .photo-item {
+    width: 200px; /* Adjust image width as needed */
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .photo-item img {
+    width: 100%;
+    height: auto;
+  }
+  

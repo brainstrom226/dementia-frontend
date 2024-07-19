@@ -1,1 +1,33 @@
-<p>gallery works!</p>
+<div class="gallery-container">
+    <div class="gallery-top">
+      <h2>Photo Gallery</h2>
+    </div>    
+    <!-- Name Label and Input -->
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" [(ngModel)]="photoName">
+    </div>
+  
+    <!-- File Upload -->
+    <div class="file-upload-section">
+      <label for="file-upload" class="custom-file-upload">
+        <input id="file-upload" type="file" (change)="onFileSelected($event)">
+      </label>
+      <!-- Display selected file -->
+      <div *ngIf="selectedFile" class="selected-file">
+        Selected File: {{ selectedFile.name }}
+      </div>
+    </div>
+    
+    <!-- Upload Button -->
+    <button class="upload-button" (click)="onUpload()">Upload Photo</button>
+  
+    <!-- Display Existing Photos -->
+    <div class="photo-list">
+      <div *ngFor="let photo of photos" class="photo-item">
+        <img [src]="photo.url" alt="Photo">
+      </div>
+    </div>
+</div>
+
+  

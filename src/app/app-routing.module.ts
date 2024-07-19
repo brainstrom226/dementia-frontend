@@ -4,13 +4,17 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { ScheduleComponent } from './pages/schedule/schedule.component'
+import { GalleryComponent } from './pages/gallery/gallery.component'
 
 
 const routes: Routes = [
   {path: '', redirectTo:'sign-up', pathMatch:'full'},
   {path:'sign-up', component: SignUpComponent},
   {path:'care-companion', component: LandingPageComponent},
-  // {path:'contacts', component: ContactsComponent},
+  {path:'contacts', component: ContactsComponent},
+  {path:'schedule', component: ScheduleComponent},
+  {path: 'gallery', component: GalleryComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
