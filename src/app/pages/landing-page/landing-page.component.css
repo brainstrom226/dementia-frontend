@@ -4,6 +4,7 @@
   background: linear-gradient(-135deg, #c850c0, #4158d0);
   font-weight: 500;
 }
+
 .spacer {
   flex: 1 1 auto;
 }
@@ -39,4 +40,30 @@
 
 .tile:hover {
   transform: translateY(-5px);
+}
+
+.modern-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modern-button {
+  background-color: #4158d0;
+  color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.modern-button:hover {
+  background-color: #c850c0;
+  transform: translateY(-3px);
 }
