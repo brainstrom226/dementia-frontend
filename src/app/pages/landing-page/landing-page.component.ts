@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 
 export class LandingPageComponent {
-  showTiles = false;
+  showTiles = true;
   
   showViews: { [key in ViewType]: boolean } = { 
     schedule: false, 
@@ -45,7 +45,7 @@ export class LandingPageComponent {
   }
 
   openView(view: any): void {
-    this.showTiles = true;
+    this.showTiles = false;
     this.openOneView(view);
   }
 

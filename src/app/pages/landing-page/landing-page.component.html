@@ -5,8 +5,8 @@
   <button mat-button (click)="signOut()">Sign Out</button>
 </mat-toolbar>
 
-<div class="container" *ngIf="!showTiles">
-  <div class="row col-sm-12" style="height: 50%;">
+<div class="container" *ngIf="showTiles">
+  <div class="row col-sm-12 tiles-container" style="height: 50%;">
     <div class="col-6 tile" (click)="openView('gallery')">
       <h2>Gallery</h2>
       <img src="gallery.jpg" alt="Gallery">
@@ -16,7 +16,7 @@
       <img src="schedule.jpg" alt="Schedule">
     </div>
   </div>
-  <div class="row col-sm-12" style="height: 50%;">
+  <div class="row col-sm-12 tiles-container" style="height: 50%;">
     <div class="col-6 tile" (click)="openView('games')">
       <h2>Games</h2>
       <img src="games.jpg" alt="Games">
@@ -30,8 +30,8 @@
 
 
 
-<div class="container" *ngIf="showTiles">
-  <div class="row col-sm-12">
+<div class="container" *ngIf="!showTiles">
+  <div class="row col-sm-12" >
     <div class="col-3">
       <div (click)="openOneView('gallery')">Gallery</div>
       <div (click)="openOneView('schedule')">Schedule</div>
